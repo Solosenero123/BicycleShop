@@ -1,0 +1,72 @@
+﻿body {
+    width: 70vw;
+    margin-left: 15vw;
+    font-family: Arial;
+    background-color: lightgray;
+    color: black;
+}
+
+.mainblock {
+    display: flex;
+    flex-direction: column;
+}
+
+.AddBicycle {
+    padding: 20px;
+    padding-top: 5px;
+    background-color: rgb(192,192,192);
+    display: flex;
+    flex-direction: column;
+}
+
+.AddBicycleDiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+    .AddBicycleDiv p {
+        width: 28%;
+    }
+
+
+.BikeInfoAdd {
+    width: 28%;
+    height:100%;
+}
+
+.BikeInfoAdd input{
+    width: 100%;
+    height: 100%;
+}
+
+
+    .BikeInfoAdd input {
+        width: 100%;
+    }
+
+.BikeInfoAddWithButton {
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+}
+
+    .BikeInfoAddWithButton input {
+        width: 45%;
+    }
+
+    .BikeInfoAddWithButton button {
+        width: 40%;
+        background-color: aquamarine;
+        border: none;
+        color: white;
+    }
+
+.AddBicycleDivInputs{
+    height:35px;
+    
+}
+
+.AddBicycleDivInputs input{
+    font-size:18px;
+}

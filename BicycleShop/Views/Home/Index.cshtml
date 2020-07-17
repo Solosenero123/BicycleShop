@@ -1,0 +1,50 @@
+﻿@model BicycleShop.Models.Bicycle
+@{
+    Layout = null;
+}
+
+@{
+    ViewBag.Title = "Awesome bike rental";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/Index.css")
+
+</head>
+<body>
+    <h1 class="Title">Awesome bike rental</h1>
+    <div class="MainBlock">
+        <h3>Create new rent</h3>
+        <div class="AddBicycle">
+            <div class="AddBicycleDiv">
+                <p>Bike name</p>
+                <p>Bike type</p>
+                <p>Rent price</p>
+            </div>
+            <div  class="AddBicycleDiv AddBicycleDivInputs">
+                <div class="BikeInfoAdd">
+                    <input>
+                </div>
+                <div class="BikeInfoAdd">
+                    <input>
+                </div>
+                <div class="BikeInfoAddWithButton BikeInfoAdd">
+                    <input>
+                    <button>Submit rent</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="RemoveRent">
+
+        </div>
+        <div class="NewRent">
+
+        </div>
+    </div>
+</body>
+</html>
