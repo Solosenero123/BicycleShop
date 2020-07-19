@@ -1,0 +1,34 @@
+﻿.RemoveRent{
+    margin-top: 75px;
+    width:100%;
+}
+
+.BicyclePlate {
+    height: 60px;
+    width: 100% - 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px;
+    padding-top:5px;
+    padding-bottom:5px;
+    background-color: white;
+}
+
+.RemovePlateButton {
+    height:40px;
+    width:12.5%;
+}
+    .RemovePlateButton button {
+        width: 100%;
+        height: 100%;
+        background-color: red;
+        color: white;
+        border:none;
+    }
+
+
+    .RemovePlateText{
+    width:68%;
+}

@@ -12,10 +12,13 @@
     <meta charset="utf-8" />
     <meta name="viewport">
     <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/Index.css")
+    @Styles.Render("~/Content/MainPageAddBicycle.css")
+    @Styles.Render("~/Content/MainPageRemoveRent.css")
+    @Styles.Render("~/Content/MainPageBicyclePlate.css")
 
 </head>
 <body>
+    <h1>@ViewBag.Check</h1>
     <h1 class="Title">Awesome bike rental</h1>
     <div class="MainBlock">
         <h3>Create new rent</h3>
@@ -25,25 +28,60 @@
                 <p>Bike type</p>
                 <p>Rent price</p>
             </div>
-            <div  class="AddBicycleDiv AddBicycleDivInputs">
-                <div class="BikeInfoAdd">
-                    <input>
-                </div>
-                <div class="BikeInfoAdd">
-                    <input>
-                </div>
-                <div class="BikeInfoAddWithButton BikeInfoAdd">
-                    <input>
-                    <button>Submit rent</button>
-                </div>
-            </div>
+            <form class="AddBicycleDiv AddBicycleDivInputs" method="post" action="/Home/Bike">
+                <input type="hidden" value="@ViewBag.BikeId" name="id" />
+                <input type="hidden" value="true" name="free" />
+                <input type="text" name="name" class="BigInput AddInput" />
+                <select name="type" class="BigInput AddInput">
+                    <option>Шоссейный</option>
+                    <option>Горный</option>
+                </select>
+                <input type="text" name="price" class="SmallInput AddInput" />
+                <button>Submit Rent</button>
+            </form>
         </div>
-
         <div class="RemoveRent">
+            <h3>Your rent (Total: $12.99)</h3>
+            @foreach (var bike in ViewBag.Bicycles)
+            {
+                if (bike.Free == false)
+                {
+                <div class="BicyclePlate">
+                    <div class="RemovePlateText">
+                        <p>@bike.Name  /  @bike.Type  /  $@bike.Price  / @bike.Free</p>
+                    </div>
+                    <form method="post" class="RemovePlateButton" action="/Home/CancelRentBike">
+                        <input type="hidden" name="id" value="@bike.Id" />
+                        <button>Cancel rent</button>
+                    </form>
+                </div>
+                }
+            }
 
         </div>
         <div class="NewRent">
-
+            <h3>Available bicycles (@ViewBag.BicyclesCount)</h3>
+            @foreach (var bicycle in ViewBag.Bicycles)
+            {
+                if (bicycle.Free == true)
+                {
+                <div class="BicyclePlate">
+                    <div class="BicyclePlateText">
+                        <p>@bicycle.Name  /  @bicycle.Type  /  $@bicycle.Price  / @bicycle.Free</p>
+                    </div>
+                    <div class="PlateButton">
+                        <form method="post" class="RentPlateButton" action="/Home/RentBike">
+                            <input type="hidden" name="id" value="@bicycle.Id"/>
+                            <button>Rent</button>
+                        </form>
+                        <form  class="DeletePlateButton" action="/Home/BikeDelete">
+                            <input type="hidden" name="id" value="@bicycle.Id" />
+                            <button>Delete</button>
+                        </form>
+                    </div>
+                </div>
+                }
+            }
         </div>
     </div>
 </body>

@@ -1,0 +1,26 @@
+﻿.PlateButton {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 28%;
+}
+
+    .PlateButton button {
+        width: 100%;
+    }
+
+.DeletePlateButton {
+    width: 44.6%;
+}
+
+    .DeletePlateButton button {
+        background-color: red;
+    }
+
+.RentPlateButton button {
+    background-color: blue;
+}
+
+.RentPlateButton {
+    width: 44.6%;
+}
