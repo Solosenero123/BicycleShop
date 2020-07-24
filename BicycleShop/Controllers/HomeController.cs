@@ -46,6 +46,7 @@ namespace BicycleShop.Controllers
         {
             Bicycle bike = bicycleContext.Bicycles.Find(id);
             bicycleContext.Bicycles.Remove(bike);
+            bicycleContext.SaveChanges();
             BikeId();
             return View("Index");
         }
@@ -80,6 +81,7 @@ namespace BicycleShop.Controllers
                 IEnumerable<Bicycle> bicycles = bicycleContext.Bicycles;
                 lastbike = bicycles.Last();
                 ViewBag.BikeId = lastbike.Id;
+                ViewBag.Bicycles = bicycles;
             }
             else
                 ViewBag.BikeId = 0;

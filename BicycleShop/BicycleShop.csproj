@@ -134,10 +134,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\BicycleContext.mdf" />
-    <Content Include="App_Data\BicycleContext_log.ldf">
-      <DependentUpon>BicycleContext.mdf</DependentUpon>
-    </Content>
     <Content Include="Content\MainPageAddBicycle.css" />
     <Content Include="Content\MainPageBicyclePlate.css" />
     <Content Include="Content\MainPageRemoveRent.css" />
@@ -169,7 +165,9 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

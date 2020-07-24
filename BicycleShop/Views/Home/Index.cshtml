@@ -42,44 +42,52 @@
         </div>
         <div class="RemoveRent">
             <h3>Your rent (Total: $12.99)</h3>
-            @foreach (var bike in ViewBag.Bicycles)
-            {
-                if (bike.Free == false)
+            @{ if (ViewBag.Bicycles != null)
                 {
-                <div class="BicyclePlate">
-                    <div class="RemovePlateText">
-                        <p>@bike.Name  /  @bike.Type  /  $@bike.Price  / @bike.Free</p>
-                    </div>
-                    <form method="post" class="RemovePlateButton" action="/Home/CancelRentBike">
-                        <input type="hidden" name="id" value="@bike.Id" />
-                        <button>Cancel rent</button>
-                    </form>
-                </div>
+                    foreach (var bike in ViewBag.Bicycles)
+                    {
+                        if (bike.Free == false)
+                        {
+                            <div class="BicyclePlate">
+                                <div class="RemovePlateText">
+                                    <p>@bike.Name  /  @bike.Type  /  $@bike.Price  / @bike.Free</p>
+                                </div>
+                                <form method="post" class="RemovePlateButton" action="/Home/CancelRentBike">
+                                    <input type="hidden" name="id" value="@bike.Id" />
+                                    <button>Cancel rent</button>
+                                </form>
+                            </div>
+                        }
+                    }
                 }
             }
 
         </div>
         <div class="NewRent">
             <h3>Available bicycles (@ViewBag.BicyclesCount)</h3>
-            @foreach (var bicycle in ViewBag.Bicycles)
-            {
-                if (bicycle.Free == true)
+            @{ if (ViewBag.Bicycles != null)
                 {
-                <div class="BicyclePlate">
-                    <div class="BicyclePlateText">
-                        <p>@bicycle.Name  /  @bicycle.Type  /  $@bicycle.Price  / @bicycle.Free</p>
-                    </div>
-                    <div class="PlateButton">
-                        <form method="post" class="RentPlateButton" action="/Home/RentBike">
-                            <input type="hidden" name="id" value="@bicycle.Id"/>
-                            <button>Rent</button>
-                        </form>
-                        <form  class="DeletePlateButton" action="/Home/BikeDelete">
-                            <input type="hidden" name="id" value="@bicycle.Id" />
-                            <button>Delete</button>
-                        </form>
-                    </div>
-                </div>
+                    foreach (var bicycle in ViewBag.Bicycles)
+                    {
+                        if (bicycle.Free == true)
+                        {
+                            <div class="BicyclePlate">
+                                <div class="BicyclePlateText">
+                                    <p>@bicycle.Name  /  @bicycle.Type  /  $@bicycle.Price  / @bicycle.Free</p>
+                                </div>
+                                <div class="PlateButton">
+                                    <form method="post" class="RentPlateButton" action="/Home/RentBike">
+                                        <input type="hidden" name="id" value="@bicycle.Id" />
+                                        <button>Rent</button>
+                                    </form>
+                                    <form class="DeletePlateButton" action="/Home/BikeDelete">
+                                        <input type="hidden" name="id" value="@bicycle.Id" />
+                                        <button>Delete</button>
+                                    </form>
+                                </div>
+                            </div>
+                        }
+                    }
                 }
             }
         </div>
